@@ -1,5 +1,6 @@
 
 #import "RNNotificationBanner.h"
+#import "UIColor+Hexadecimal.h"
 
 @implementation RNNotificationBanner
 
@@ -46,15 +47,15 @@ RCT_EXPORT_METHOD(Show:(NSDictionary *)props onClick:(RCTResponseSenderBlock)onC
 //     if (icon != nil && [icon count] > 0 && [withIcon intValue] == 1) {
 //         drawable = [RNImageHelper GenerateImage: icon];
 //     }
-//     if (tintColorValue != nil && [tintColorValue length] > 0) {
-//         tintColor = [RNImageHelper ColorFromHexCode: tintColorValue];
-//     }
-//     if (drawable != nil) {
-// //        style.imageSize = drawable.size;
-//     }
-//     if (titleColorValue != nil && [titleColorValue length] > 0) {
-//         titleColor = [RNImageHelper ColorFromHexCode: titleColorValue];
-//     }
+     if (tintColorValue != nil && [tintColorValue length] > 0) {
+         tintColor = [UIColor colorWithHexString:tintColorValue];
+     }
+     if (drawable != nil) {
+ //        style.imageSize = drawable.size;
+     }
+     if (titleColorValue != nil && [titleColorValue length] > 0) {
+         titleColor = [UIColor colorWithHexString:titleColorValue];
+     }
     //    if (titleSize != 0) {
     //        style.titleFont = [UIFont systemFontOfSize: [titleSize intValue]];
     //    }
