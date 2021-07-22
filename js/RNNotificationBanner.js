@@ -3,12 +3,9 @@ import {
   findNodeHandle,
   ViewPropTypes,
   NativeModules,
-  Platform
+  Platform,
 } from 'react-native'
 import PropTypes from 'prop-types'
-
-import RNImageHelper from 'react-native-image-helper'
-import Feather from 'react-native-vector-icons/Feather'
 
 const { RNNotificationBanner } = NativeModules
 
@@ -37,7 +34,7 @@ class NotificationBanner extends PureComponent {
     isSwipeToDismissEnabled: PropTypes.bool,
 
     onClick: PropTypes.func,
-    onHide: PropTypes.func
+    onHide: PropTypes.func,
   }
 
   static defaultProps = {
@@ -58,12 +55,12 @@ class NotificationBanner extends PureComponent {
     withIcon: true,
 
     dismissable: true,
-    isSwipeToDismissEnabled: true
+    isSwipeToDismissEnabled: true,
   }
 
   static Duration = {
     Short: 0,
-    Long: 1
+    Long: 1,
   }
 
   static Types = {
@@ -71,7 +68,7 @@ class NotificationBanner extends PureComponent {
     Info: 1,
     Success: 2,
     Warn: 3,
-    Error: 4
+    Error: 4,
   }
 
   static Show(props) {
@@ -108,19 +105,19 @@ class NotificationBanner extends PureComponent {
     }
 
     if (props.isSwipeToDismissEnabled === undefined) {
-      props.isSwipeToDismissEnabled = NotificationBanner.defaultProps.isSwipeToDismissEnabled
+      props.isSwipeToDismissEnabled =
+        NotificationBanner.defaultProps.isSwipeToDismissEnabled
     }
 
-    if (props.withIcon) {
-      if (props.icon && props.icon.props) {
-        let icon = props.icon.props
-
-        let vectorIcon = RNImageHelper.Resolve(icon.family, icon.name)
-        props.icon = Object.assign({}, icon, vectorIcon)
-      }
-    } else {
-      props.icon = undefined
-    }
+    // if (props.withIcon) {
+    //   if (props.icon && props.icon.props) {
+    //     // let icon = props.icon.props
+    //     // let vectorIcon = RNImageHelper.Resolve(icon.family, icon.name)
+    //     // props.icon = Object.assign({}, icon, vectorIcon)
+    //   }
+    // } else {
+    props.icon = undefined
+    // }
 
     let _onClick = () => {
       props.onClick && props.onClick()
@@ -138,14 +135,6 @@ class NotificationBanner extends PureComponent {
 
   static successStyle = {
     tintColor: '#4b994f',
-    icon: (
-      <Feather
-        name={'check-circle'}
-        size={22}
-        color={'#FFFFFF'}
-        family={'Feather'}
-      />
-    )
   }
   static Success(props) {
     if (!props) props = {}
@@ -159,95 +148,15 @@ class NotificationBanner extends PureComponent {
     NotificationBanner.Show(props)
   }
 
-  static errorStyle = {
-    tintColor: '#d81919',
-    icon: (
-      <Feather
-        name={'x-circle'}
-        size={22}
-        color={'#FFFFFF'}
-        family={'Foundation'}
-      />
-    )
-  }
-  static Error(props) {
-    if (!props) props = {}
-    if (props.tintColor === undefined)
-      props.tintColor = NotificationBanner.errorStyle.tintColor
-    if (props.icon === undefined)
-      props.icon = NotificationBanner.errorStyle.icon
+  componentDidMount() {}
 
-    props.type = NotificationBanner.Types.Error
+  componentDidUpdate() {}
 
-    NotificationBanner.Show(props)
-  }
-
-  static infoStyle = {
-    tintColor: '#5162bc',
-    icon: (
-      <Feather
-        name={'info'}
-        size={22}
-        color={'#FFFFFF'}
-        family={'MaterialIcons'}
-      />
-    )
-  }
-  static Info(props) {
-    if (!props) props = {}
-    if (props.tintColor === undefined)
-      props.tintColor = NotificationBanner.infoStyle.tintColor
-    if (props.icon === undefined) props.icon = NotificationBanner.infoStyle.icon
-
-    props.type = NotificationBanner.Types.Info
-
-    NotificationBanner.Show(props)
-  }
-
-  static warnStyle = {
-    tintColor: '#feb119',
-    icon: (
-      <Feather
-        name={'minus-circle'}
-        size={22}
-        color={'#FFFFFF'}
-        family={'Feather'}
-      />
-    )
-  }
-  static Warn(props) {
-    if (!props) props = {}
-    if (props.tintColor === undefined)
-      props.tintColor = NotificationBanner.warnStyle.tintColor
-    if (props.icon === undefined) props.icon = NotificationBanner.warnStyle.icon
-
-    props.type = NotificationBanner.Types.Warn
-
-    NotificationBanner.Show(props)
-  }
-
-  static normalStyle = {
-    tintColor: '#484d51'
-  }
-  static Normal(props) {
-    if (!props) props = {}
-    if (props.tintColor === undefined)
-      props.tintColor = NotificationBanner.normalStyle.tintColor
-
-    props.type = NotificationBanner.Types.Normal
-
-    NotificationBanner.Show(props)
-  }
-
-  componentDidMount() { }
-
-  componentDidUpdate() { }
-
-  show() { }
+  show() {}
 
   render() {
     return null
   }
 }
 
-export { NotificationBanner as RNNotificationBanner }
+export default NotificationBanner
