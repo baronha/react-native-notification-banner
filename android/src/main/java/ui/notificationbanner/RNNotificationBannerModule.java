@@ -74,18 +74,18 @@ public class RNNotificationBannerModule extends ReactContextBaseJavaModule {
     onClickCallback = onClick;
     onHideCallback = onHide;
 
-    if (withIcon) {
-      if (icon != null && icon.toHashMap().size() > 0) {
-        try {
-          Class<?> clazz = Class.forName("prscx.imagehelper.RNImageHelperModule"); //Controller A or B
-          Class params[] = {ReadableMap.class};
-          Method method = clazz.getDeclaredMethod("GenerateImage", params);
+    // if (withIcon) {
+    //   if (icon != null && icon.toHashMap().size() > 0) {
+    //     try {
+    //       Class<?> clazz = Class.forName("prscx.imagehelper.RNImageHelperModule"); //Controller A or B
+    //       Class params[] = {ReadableMap.class};
+    //       Method method = clazz.getDeclaredMethod("GenerateImage", params);
 
-          iconDrawable = (Drawable) method.invoke(null, icon);
-        } catch (Exception e) {
-        }
-      }
-    }
+    //       iconDrawable = (Drawable) method.invoke(null, icon);
+    //     } catch (Exception e) {
+    //     }
+    //   }
+    // }
 
     if (tintColorValue != null && tintColorValue.length() > 0) {
       tintColor = Color.parseColor(tintColorValue);
