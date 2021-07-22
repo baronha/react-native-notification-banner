@@ -43,18 +43,18 @@ RCT_EXPORT_METHOD(Show:(NSDictionary *)props onClick:(RCTResponseSenderBlock)onC
     
 //    CSToastStyle *style = [[CSToastStyle alloc] initWithDefaultStyle];
     
-//     if (icon != nil && [icon count] > 0 && [withIcon intValue] == 1) {
-//         drawable = [RNImageHelper GenerateImage: icon];
-//     }
-//     if (tintColorValue != nil && [tintColorValue length] > 0) {
-//         tintColor = [RNImageHelper ColorFromHexCode: tintColorValue];
-//     }
-//     if (drawable != nil) {
-// //        style.imageSize = drawable.size;
-//     }
-//     if (titleColorValue != nil && [titleColorValue length] > 0) {
-//         titleColor = [RNImageHelper ColorFromHexCode: titleColorValue];
-//     }
+    if (icon != nil && [icon count] > 0 && [withIcon intValue] == 1) {
+        drawable = [RNImageHelper GenerateImage: icon];
+    }
+    if (tintColorValue != nil && [tintColorValue length] > 0) {
+        tintColor = [RNImageHelper ColorFromHexCode: tintColorValue];
+    }
+    if (drawable != nil) {
+//        style.imageSize = drawable.size;
+    }
+    if (titleColorValue != nil && [titleColorValue length] > 0) {
+        titleColor = [RNImageHelper ColorFromHexCode: titleColorValue];
+    }
     //    if (titleSize != 0) {
     //        style.titleFont = [UIFont systemFontOfSize: [titleSize intValue]];
     //    }
