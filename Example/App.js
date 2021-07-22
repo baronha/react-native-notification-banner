@@ -7,7 +7,7 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 
-import {RNNotificationBanner} from 'react-native-notification-banner';
+import RNNotificationBanner from 'react-native-notification-banner';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 Icon.loadFont('AntDesign.ttf');
@@ -93,12 +93,12 @@ export default class App extends Component<Props> {
               title: 'Message',
               titleSize: 50,
               titleColor: '#555555',
-              // subTitle: 'Message',
+              subTitle: 'Message',
               subTitleSize: 50,
               subTitleColor: '#555555',
               withIcon: true,
               duration: 1,
-              tintColor: '#000000',
+              tintColor: '#01937C',
               icon: copy,
               dismissable: false,
               onClick: () => {
