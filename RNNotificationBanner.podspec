@@ -1,6 +1,6 @@
 require 'json'
 
-package = JSON.parse(File.read(File.join(__dir__, '../package.json')))
+package = JSON.parse(File.read(File.join(__dir__, 'package.json')))
 
 Pod::Spec.new do |s|
   s.name                   = 'RNNotificationBanner'
@@ -12,11 +12,12 @@ Pod::Spec.new do |s|
   s.author                 = package['author']
   s.source                 = { :git => 'https://github.com/prscX/react-native-notification-banner.git', :tag => 'master' }
 
+  s.swift_version = ['4.2']
   s.platform               = :ios, '9.0'
   s.ios.deployment_target  = '8.0'
 
   s.preserve_paths         = 'LICENSE', 'package.json'
-  s.source_files           = '**/*.{h,m}'
+  s.source_files           = 'ios/**/*.{h,m}'
   s.dependency             'React'
   s.dependency             'BRYXBanner'
   # s.dependency             'RNImageHelper'
