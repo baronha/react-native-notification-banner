@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.author                 = package['author']
   s.source                 = { :git => 'https://github.com/prscX/react-native-notification-banner.git', :tag => 'master' }
 
-  s.swift_version = ['4.2']
+  s.swift_version = '4.2'
   s.platform               = :ios, '9.0'
   s.ios.deployment_target  = '8.0'
 
