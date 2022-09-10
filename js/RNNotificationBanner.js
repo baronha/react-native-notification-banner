@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react'
 import {
   findNodeHandle,
-  ViewPropTypes,
   NativeModules,
   Platform,
 } from 'react-native'
@@ -11,8 +10,6 @@ const { RNNotificationBanner } = NativeModules
 
 class NotificationBanner extends PureComponent {
   static propTypes = {
-    ...ViewPropTypes,
-
     type: PropTypes.number,
 
     title: PropTypes.string,
